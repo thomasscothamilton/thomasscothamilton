@@ -1,0 +1,27 @@
+# permissions for end users to view resumes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: resume-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: thomasscothamilton
+    app.kubernetes.io/part-of: thomasscothamilton
+    app.kubernetes.io/managed-by: kustomize
+  name: resume-viewer-role
+rules:
+- apiGroups:
+  - resumes.thomasscothamilton.com
+  resources:
+  - resumes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - resumes.thomasscothamilton.com
+  resources:
+  - resumes/status
+  verbs:
+  - get

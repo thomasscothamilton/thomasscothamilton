@@ -1,0 +1,73 @@
+apiVersion: resumes.thomasscothamilton.com/v1
+kind: Resume
+metadata:
+  labels:
+    app.kubernetes.io/name: resume
+    app.kubernetes.io/instance: resume-sample
+    app.kubernetes.io/part-of: thomasscothamilton
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: thomasscothamilton
+  name: resume-sample
+spec:
+  name: ""
+  email: ""
+  phone: ""
+  website: ""
+  github: ""
+  linkedin: ""
+  summary: ""
+  education:
+    - institution: ""
+      area: ""
+      studyType: ""
+      startDate: ""
+      endDate: ""
+      gpa: ""
+      courses: []
+  experiences:
+    - company: ""
+      position: ""
+      website: ""
+      startDate: ""
+      endDate: ""
+      summary: ""
+      highlights: []
+  skills:
+    - name: ""
+      level: ""
+      keywords: []
+  projects:
+    - name: ""
+      description: ""
+      highlights: []
+      keywords: []
+      startDate: ""
+      endDate: ""
+      url: ""
+      roles: []
+      entity: ""
+      type: ""
+      industry: ""
+      country: ""
+      platform: ""
+      technologies: []
+  awards:
+    - title: ""
+      date: ""
+      awarder: ""
+      summary: ""
+  publications:
+    - name: ""
+      publisher: ""
+      releaseDate: ""
+      website: ""
+      summary: ""
+  languages:
+    - language: ""
+      fluency: ""
+  interests:
+    - name: ""
+      keywords: []
+  references: 
+    - name: ""
+      reference: ""
