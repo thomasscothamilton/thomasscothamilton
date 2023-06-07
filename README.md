@@ -145,3 +145,30 @@ PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query acc
 ```shell
 docker build -t thomasscothamilton.azurecr.io .
 ```
+
+```shell
+groupId=$(az group show \
+  --name thomasscothamilton \
+  --query id --output tsv)
+```
+
+```shell
+az ad sp create-for-rbac \
+  --scope $groupId \
+  --role Contributor \
+  --sdk-auth
+```
+
+```shell
+registryId=$(az acr show \
+  --name thomasscothamilton.azurecr.io \
+  --resource-group thomasscothamilton \
+  --query id --output tsv)
+```
+
+```shell
+az role assignment create \
+  --assignee e7fdec1e-2c30-4f55-8270-1d31e2b05527 \
+  --scope $registryId \
+  --role AcrPush
+```

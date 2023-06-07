@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: thomasscothamilton
-        image: thomasscothamilton.azurecr.io/thomasscothamilton/thomasscothamilton:latest
+        image: thomasscothamilton.azurecr.io/thomasscothamilton:latest
         imagePullPolicy: IfNotPresent
         command:
         - ./manager
