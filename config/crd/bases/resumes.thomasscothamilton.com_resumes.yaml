@@ -35,10 +35,220 @@ spec:
           spec:
             description: ResumeSpec defines the desired state of Resume
             properties:
-              foo:
-                description: Foo is an example field of Resume. Edit resume_types.go
-                  to remove/update
+              awards:
+                items:
+                  properties:
+                    awarder:
+                      type: string
+                    date:
+                      type: string
+                    summary:
+                      type: string
+                    title:
+                      type: string
+                  required:
+                  - awarder
+                  - date
+                  - summary
+                  - title
+                  type: object
+                type: array
+              education:
+                items:
+                  properties:
+                    area:
+                      type: string
+                    courses:
+                      items:
+                        type: string
+                      type: array
+                    endDate:
+                      type: string
+                    gpa:
+                      type: string
+                    institution:
+                      type: string
+                    startDate:
+                      type: string
+                    studyType:
+                      type: string
+                  required:
+                  - area
+                  - courses
+                  - endDate
+                  - gpa
+                  - institution
+                  - startDate
+                  - studyType
+                  type: object
+                type: array
+              email:
                 type: string
+              experience:
+                items:
+                  properties:
+                    company:
+                      type: string
+                    endDate:
+                      type: string
+                    highlights:
+                      items:
+                        type: string
+                      type: array
+                    position:
+                      type: string
+                    startDate:
+                      type: string
+                    summary:
+                      type: string
+                    website:
+                      type: string
+                  required:
+                  - company
+                  - endDate
+                  - highlights
+                  - position
+                  - startDate
+                  - summary
+                  - website
+                  type: object
+                type: array
+              github:
+                type: string
+              interests:
+                items:
+                  properties:
+                    keywords:
+                      items:
+                        type: string
+                      type: array
+                    name:
+                      type: string
+                  required:
+                  - keywords
+                  - name
+                  type: object
+                type: array
+              languages:
+                items:
+                  properties:
+                    fluency:
+                      type: string
+                    language:
+                      type: string
+                  required:
+                  - fluency
+                  - language
+                  type: object
+                type: array
+              linkedin:
+                type: string
+              name:
+                type: string
+              phone:
+                type: string
+              projects:
+                items:
+                  properties:
+                    description:
+                      type: string
+                    endDate:
+                      type: string
+                    highlights:
+                      items:
+                        type: string
+                      type: array
+                    keywords:
+                      items:
+                        type: string
+                      type: array
+                    name:
+                      type: string
+                    startDate:
+                      type: string
+                    url:
+                      type: string
+                  required:
+                  - description
+                  - endDate
+                  - highlights
+                  - keywords
+                  - name
+                  - startDate
+                  - url
+                  type: object
+                type: array
+              publications:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    publisher:
+                      type: string
+                    releaseDate:
+                      type: string
+                    summary:
+                      type: string
+                    website:
+                      type: string
+                  required:
+                  - name
+                  - publisher
+                  - releaseDate
+                  - summary
+                  - website
+                  type: object
+                type: array
+              references:
+                items:
+                  properties:
+                    name:
+                      type: string
+                    reference:
+                      type: string
+                  required:
+                  - name
+                  - reference
+                  type: object
+                type: array
+              skills:
+                items:
+                  properties:
+                    keywords:
+                      items:
+                        type: string
+                      type: array
+                    level:
+                      type: string
+                    name:
+                      type: string
+                  required:
+                  - keywords
+                  - level
+                  - name
+                  type: object
+                type: array
+              summary:
+                type: string
+              website:
+                type: string
+            required:
+            - awards
+            - education
+            - email
+            - experience
+            - github
+            - interests
+            - languages
+            - linkedin
+            - name
+            - phone
+            - projects
+            - publications
+            - references
+            - skills
+            - summary
+            - website
             type: object
           status:
             description: ResumeStatus defines the observed state of Resume
