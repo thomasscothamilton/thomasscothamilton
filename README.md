@@ -4,6 +4,39 @@
 ## Description
 // TODO(user): An in-depth paragraph about your project and overview of use
 
+## FluxCD
+
+```shell
+flux check --pre
+```
+
+```shell
+flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=thomasscothamilton-infra \
+  --branch=main \
+  --path=./clusters/my-cluster \
+  --personal
+```
+
+```shell
+flux create source git thomasscothamilton \
+  --url=https://github.com/thomasscothamilton/thomasscothamilton \
+  --branch=main \
+  --interval=30s \
+  --export > ./clusters/my-cluster/thomasscothamilton-source.yaml
+```
+
+```shell
+flux create kustomization thomasscothamilton \
+  --target-namespace=default \
+  --source=thomasscothamilton \
+  --path="./kustomize" \
+  --prune=true \
+  --interval=5m \
+  --export > ./clusters/my-cluster/thomasscothamilton-kustomization.yaml
+```
+
 ## Getting Started
 You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
 **Note:** Your controller will automatically use the current context in your kubeconfig file (i.e. whatever cluster `kubectl cluster-info` shows).
@@ -92,3 +125,23 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
+# azure
+
+```shell
+
+ACR_NAME=thomasscothamilton
+REGISTRY=$ACR_NAME.azurecr.io
+
+# Login to Azure
+az login
+
+# Login to ACR, using a token based on your Azure identity
+USER_NAME="00000000-0000-0000-0000-000000000000"
+PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+# docker login loginServer -u 00000000-0000-0000-0000-000000000000 -p accessToken
+
+```
+
+```shell
+docker build -t thomasscothamilton.azurecr.io .
+```
