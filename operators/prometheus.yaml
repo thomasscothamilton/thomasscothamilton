@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: 'https://prometheus-community.github.io/helm-charts' # Official Prometheus Community Helm repo
-    targetRevision: 'latest'                                      # Or pin to a specific version
+    targetRevision: 'main'                                      # Or pin to a specific version
     chart: 'kube-prometheus-stack'
     helm:
       releaseName: 'kube-prometheus-stack'
